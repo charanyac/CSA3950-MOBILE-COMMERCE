@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bOpenCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Open Camera"
+        />
+
+    <Button
+        android:id="@+id/bBrowseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browse Image"
+        android:layout_toEndOf="@+id/bOpenCamera"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        />
+
+    <TextView
+        android:id="@+id/tvOriginal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. Original Image"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/bOpenCamera"
+        />
+
+   <ImageView
+       android:id="@+id/ivOriginal"
+       android:layout_width="400dp"
+       android:layout_height="400dp"
+       android:layout_below="@+id/tvOriginal"
+       android:layout_centerHorizontal="true"
+       android:layout_marginStart="10dp"
+       android:layout_marginEnd="10dp"/>
+
+    <Button
+        android:id="@+id/bPerformProcessing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Process Image"
+        android:layout_below="@id/ivOriginal"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tvProgressTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Processing..."
+        android:textSize="15sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/bPerformProcessing"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/pbProcessingProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:max="100"
+        android:progress="0"
+        android:layout_below="@+id/tvProgressTag"/>
+
+    <TextView
+        android:id="@+id/tvProcessed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Processed Graph"
+        android:textSize="25sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/pbProcessingProgress"
+
+        />
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width = "match_parent"
+        android:layout_height = "200dp"
+        android:id = "@+id/graph"
+        android:layout_below="@id/tvProcessed"
+        android:layout_margin="10dp"
+        />
+
+    <ImageView
+        android:layout_width = "match_parent"
+        android:layout_height = "200dp"
+        android:id = "@+id/ivgraph"
+        android:layout_below="@id/tvProcessed"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvFilterLabel"
+        android:text="Filter Strength  0"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="45dp"
+        android:textSize="17dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/ivgraph"
+        />
+
+    <!-- Discrete slider -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0.0"
+        android:valueTo="30.0"
+        android:stepSize="2.0"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/tvFilterLabel"/>
+
+    <Button
+        android:id="@+id/bFilterGraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Filter Graph"
+        android:layout_below="@id/sFilter"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tvFilterProgressTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtering..."
+        android:textSize="15sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/bFilterGraph"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/pbFilteringProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:max="100"
+        android:progress="0"
+        android:layout_below="@+id/tvFilterProgressTag"/>
+
+    <ImageView
+        android:layout_width = "match_parent"
+        android:layout_height = "200dp"
+        android:id = "@+id/ivfilteredGraph"
+        android:layout_below="@id/pbFilteringProgress"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:id="@+id/bPlayAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate + Play Audio"
+        android:layout_below="@id/ivfilteredGraph"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        />
+
+
+
+
+</RelativeLayout>
+</ScrollView>
